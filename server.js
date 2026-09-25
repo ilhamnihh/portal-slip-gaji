@@ -4,12 +4,12 @@ const path = require('path');
 const fs = require('fs');
 const { createClient } = require('@supabase/supabase-js');
 
+const express = require('express');
+const multer = require('multer');
+const { createClient } = require('@supabase/supabase-js');
+
 const app = express();
-// CONTOH BENAR (Dinamis untuk Railway):
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server berjalan di port ${PORT}`);
-});
+// ... kode selanjutnya ...
 
 // Konfigurasi Supabase (Ganti dengan URL dan Anon Key project Supabase kamu)
 // Konfigurasi Supabase yang sudah dibersihkan
