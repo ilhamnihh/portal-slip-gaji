@@ -7,6 +7,10 @@ const { createClient } = require('@supabase/supabase-js');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 // Konfigurasi Supabase (Ganti dengan URL dan Anon Key project Supabase kamu)
 // Konfigurasi Supabase yang sudah dibersihkan
 const SUPABASE_URL = 'https://vcasurmurhbtlnxrqkdi.supabase.co'; 
