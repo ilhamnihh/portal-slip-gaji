@@ -1,22 +1,18 @@
 
+const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const { createClient } = require('@supabase/supabase-js');
 
-const express = require('express');
-const multer = require('multer');
-const { createClient } = require('@supabase/supabase-js');
-
 const app = express();
-// ... kode selanjutnya ...
 
-// Konfigurasi Supabase (Ganti dengan URL dan Anon Key project Supabase kamu)
-// Konfigurasi Supabase yang sudah dibersihkan
+// Konfigurasi Supabase
 const SUPABASE_URL = 'https://vcasurmurhbtlnxrqkdi.supabase.co'; 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZjYXN1cm11cmhidGxueHJxa2RpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzMTIxMzYsImV4cCI6MjEwNTg4ODEzNn0.REy2C3gsZqK-7zbmorYDvIVubpfxN9tyW0ojoodshGc'; 
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -37,7 +33,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// API Login (Sudah diperbarui agar aman dan tidak pakai .single())
+// API Login
 app.post('/api/login', async (req, res) => {
     try {
         const { employee_id, password } = req.body;
@@ -51,6 +47,7 @@ app.post('/api/login', async (req, res) => {
 
         if (error) {
             console.log("❌ Error dari Supabase:", error.message);
+            // ... lanjutkan sisa kode kamu di bawahnya ...
         }
 
         if (error || !users || users.length === 0) {
